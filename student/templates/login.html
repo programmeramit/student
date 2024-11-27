@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+
+
+{% block style %}
+
+
+
+.auth-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f4f9;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 400px;
+    padding: 30px;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.auth-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.auth-footer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.auth-footer a {
+    color: #007bff;
+}
+
+{% endblock style %}
+
+
+
+{% block container %}
+
+<div class="auth-container">
+    <div class="auth-card">
+        <!-- Authentication Form -->
+        <div class="auth-header">
+            <h3>Login with Email</h3>
+            <p class="text-muted">Enter your email and password to login.</p>
+        </div>
+
+        <form method="POST">
+            <!-- CSRF Token (for Django or other backend frameworks) -->
+            <div class="mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="email" name="email" required placeholder="Enter your email">
+            </div>
+
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" name="password" required placeholder="Enter your password">
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">Login</button>
+        </form>
+
+        <!-- Footer with Links -->
+        <div class="auth-footer">
+            <p class="text-muted">Don't have an account? <a href="#">Sign Up</a></p>
+            <p><a href="#">Forgot Password?</a></p>
+        </div>
+    </div>
+</div>
+
+
+{% endblock container %}
+
+
+
+
