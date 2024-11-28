@@ -37,7 +37,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),  # Path to your static directory
 ]
 
-ALLOWED_HOSTS = [".vercel.app"]
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
