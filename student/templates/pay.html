@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+    var options = {
+        "key": "{{ key_id }}",
+        "amount": "{{ amount }}",
+        "currency": "INR",
+        "name": "{{ name }}",
+        "description": "Donation",
+        "handler": function (response) {
+            fetch('/payment-success/', {
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': '{{ csrf_token }}',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ payment_id: response.razorpay_payment_id })
+            }).then(response => response.json())
+              .then(data => alert("Payment Successful!"));
+        }
+    };
+    var rzp = new Razorpay(options);
+    rzp.open();
+</script>
+
+
+
+
+{% endblock content %}
+
+
+
+
+
+
